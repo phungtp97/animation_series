@@ -76,15 +76,20 @@ class SplashLikeAnimationState extends State<SplashLikeAnimation>
                 Expanded(
                   child: Stack(
                     children: [
-                      CachedNetworkImage(
-                        imageUrl:
-                            'https://i0.wp.com/radojuva.com/wp-content/uploads/sg/nikon-d3100-new/nikon-d3100-sample-shot-lynx-tassi-mode-23.jpg?ssl=1',
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        placeholder: (context, url) =>
-                            const Center(child: CircularProgressIndicator()),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
+                      GestureDetector(
+                        onTap: () {
+                          setLike(!like);
+                        },
+                        child: CachedNetworkImage(
+                          imageUrl:
+                              'https://i0.wp.com/radojuva.com/wp-content/uploads/sg/nikon-d3100-new/nikon-d3100-sample-shot-lynx-tassi-mode-23.jpg?ssl=1',
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          placeholder: (context, url) =>
+                              const Center(child: CircularProgressIndicator()),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
+                        ),
                       ),
                       AnimatedBuilder(
                           animation: animController,
